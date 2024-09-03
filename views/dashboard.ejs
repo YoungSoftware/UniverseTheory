@@ -1,0 +1,14 @@
+<% include layout %>
+
+<h1>Welcome, <%= user.name %>!</h1>
+<p>Here you can manage your posts, comments, and account settings.</p>
+<a href="/posts/new" class="btn">Create a New Post</a>
+
+<h2>Your Posts</h2>
+<ul>
+    <% posts.forEach(post => { %>
+        <li>
+            <a href="/posts/<%= post._id %>"><%= post.title %></a> by <%= post.author.name %>
+        </li>
+    <% }) %>
+</ul>

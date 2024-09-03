@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unified Universe Theory</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap">
+    <link rel="manifest" href="/manifest.json">
+
+    <link rel="icon" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/svgs/solid/atom.svg" type="image/svg+xml">
+</head>
+<body>
+    <header class="navbar">
+        <div class="container">
+            <h1 class="logo"><i class="fas fa-atom"></i> Unified Universe Theory</h1>
+            <nav>
+                <ul>
+                    <% if (user) { %>
+                        <li><a href="/dashboard">Dashboard</a></li>
+                        <li><a href="/users/logout">Logout</a></li>
+                    <% } else { %>
+                        <li><a href="/users/login">Login</a></li>
+                        <li><a href="/users/register">Sign Up</a></li>
+                    <% } %>
+                    <li><a href="/contact">Contact or Ask Questions</a></li>
+                </ul>
+            </nav>
+            <div class="search-bar">
+                <input type="text" placeholder="Search..." id="searchInput">
+                <button type="button" class="btn" onclick="searchContent()"><i class="fas fa-search"></i></button>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>Welcome to the Unified Universe Theory</h1>
+            <p>An ambitious project to bridge the gap between quantum mechanics and classical physics.</p>
+            <p><strong>Disclaimer:</strong> The mathematical frameworks presented in this theory are based on logical deductions and have not yet been fully tested. They represent novel ideas that require further validation through empirical and experimental analysis.</p>
+            <a href="/intro" class="btn">Explore the Theory <i class="fas fa-arrow-right"></i></a>
+        </div>
+    </section>
+
+    <section class="features">
+        <div class="feature-card">
+            <i class="fas fa-bolt fa-3x"></i>
+            <h3>Temporal Force</h3>
+            <p>Discover the force that drives the expansion of the universe through time.</p>
+            <a href="/temporal-force" class="btn">Learn More</a>
+        </div>
+        <div class="feature-card">
+            <i class="fas fa-compress-alt fa-3x"></i>
+            <h3>Gravity as a Net Force</h3>
+            <p>Reinterpreting gravity as the net result of temporal and pushback forces.</p>
+            <a href="/gravity" class="btn">Learn More</a>
+        </div>
+        <div class="feature-card">
+            <i class="fas fa-clock fa-3x"></i>
+            <h3>Time Dilation</h3>
+            <p>Explore how time dilation is influenced by mass density and velocity.</p>
+            <a href="/time-dilation" class="btn">Learn More</a>
+        </div>
+        <div class="feature-card">
+            <i class="fas fa-globe fa-3x"></i>
+            <h3>Cosmology</h3>
+            <p>Understand the large-scale implications of the Unified Universe Theory.</p>
+            <a href="/cosmology" class="btn">Learn More</a>
+        </div>
+        <div class="feature-card">
+            <i class="fas fa-lightbulb fa-3x"></i>
+            <h3>Speed of Light</h3>
+            <p>Understand why light travels at a constant speed and its relationship with time.</p>
+            <a href="/speed-of-light" class="btn">Learn More</a>
+        </div>
+        <div class="feature-card">
+            <i class="fas fa-cloud-moon fa-3x"></i>
+            <h3>Dark Matter</h3>
+            <p>Explore how dark matter might be so dense that it crosses the temporal horizon.</p>
+            <a href="/dark-matter" class="btn">Learn More</a>
+        </div>
+        <div class="feature-card">
+            <i class="fas fa-globe fa-3x"></i>
+            <h3>Temporal Horizon</h3>
+            <p>Understand the boundary between the present moment and the regions of time beyond our observation.</p>
+            <a href="/temporal-horizon" class="btn">Learn More</a>
+        </div>
+        <div class="feature-card">
+            <i class="fas fa-shield-alt fa-3x"></i>
+            <h3>Quantum Tunneling</h3>
+            <p>Explore how quantum tunneling might be explained by temporal displacement and energy interaction.</p>
+            <a href="/quantum-tunneling" class="btn">Learn More</a>
+        </div>
+        <div class="feature-card">
+            <i class="fas fa-flask fa-3x"></i>
+            <h3>Quantum Mechanics</h3>
+            <p>Discover how quantum mechanics is integrated into the temporal framework.</p>
+            <a href="/quantum-mechanics" class="btn">Learn More</a>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Unified Universe Theory | <a href="https://github.com/your-repo" target="_blank"><i class="fab fa-github"></i> View on GitHub</a></p>
+    </footer>
+
+    <script src="/js/scripts.js"></script>
+    <script>
+        function searchContent() {
+            const query = document.getElementById('searchInput').value.toLowerCase();
+            const cards = document.querySelectorAll('.feature-card');
+
+            cards.forEach(card => {
+                const cardText = card.innerText.toLowerCase();
+                card.style.display = cardText.includes(query) ? 'block' : 'none';
+            });
+        }
+    </script><script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('/service-worker.js')
+        .then(registration => {
+          console.log('ServiceWorker registration successful with scope: ', registration.scope);
+        }, err => {
+          console.log('ServiceWorker registration failed: ', err);
+        });
+    });
+  }
+</script>
+
+</body>
+</html>

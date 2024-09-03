@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unified Universe Theory</title>
+    <link rel="stylesheet" href="/css/styles.css"> <!-- Ensure this path is correct -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap">
+    <link rel="icon" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/svgs/solid/atom.svg" type="image/svg+xml">
+</head>
+
+<body>
+    <header class="navbar">
+        <div class="container">
+            <h1 class="logo"><i class="fas fa-atom"></i> Unified Universe Theory</h1>
+            <nav>
+                <ul>
+                    <% if (user) { %>
+                        <li><a href="/dashboard">Dashboard</a></li>
+                        <li><a href="/users/logout">Logout</a></li>
+                    <% } else { %>
+                        <li><a href="/users/login">Login</a></li>
+                        <li><a href="/users/register">Sign Up</a></li>
+                    <% } %>
+                    <li><a href="/contact">Contact or Ask Questions</a></li>
+                </ul>
+            </nav>
+            <div class="search-bar">
+                <input type="text" placeholder="Search..." id="searchInput">
+                <button type="button" class="btn" onclick="searchContent()"><i class="fas fa-search"></i></button>
+            </div>
+        </div>
+    </header>
+
+    <div class="content">
+        <%- body %> <!-- This is where content from views like index.ejs will be injected -->
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Unified Universe Theory | <a href="https://github.com/your-repo" target="_blank"><i class="fab fa-github"></i> View on GitHub</a></p>
+    </footer>
+
+    <script src="/js/scripts.js"></script>
+    <script>
+        function searchContent() {
+            const query = document.getElementById('searchInput').value.toLowerCase();
+            const cards = document.querySelectorAll('.feature-card');
+
+            cards.forEach(card => {
+                const cardText = card.innerText.toLowerCase();
+                card.style.display = cardText.includes(query) ? 'block' : 'none';
+            });
+        }
+    </script>
+</body>
+</html>
